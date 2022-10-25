@@ -24,7 +24,7 @@ function App() {
                 <link rel="canonical" href="http://mysite.com/example" />
                 <meta name="description" content="Learning Media" />
             </Helmet>
-            <h1 className="3xl font-bold">ajdhksdha</h1>
+            
             <RouterProvider router={router }></RouterProvider>
     </div>
   );
