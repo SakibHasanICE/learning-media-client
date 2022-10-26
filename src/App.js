@@ -1,6 +1,9 @@
 import {Helmet} from "react-helmet";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './App.css';
+import Courses from "./components/Courses/Courses";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register"
 import Main from "./Layouts/Main";
 
 function App() {
@@ -11,7 +14,15 @@ function App() {
       children:[
         {
           path:"/",
-          
+          element:<Courses></Courses>,
+        },
+        {
+          path:"login",
+          element:<Login></Login>,
+        },
+        {
+          path:"register",
+          element:<Register></Register>,
         }
       ]
     }
