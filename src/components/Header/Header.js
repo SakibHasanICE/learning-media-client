@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../contexts/UserContext';
 import img from '../images/logo1.png'
 const Header = () => {
+  const {user}= useContext(AuthContext);
     return (
     <div className='bg-cyan-700 h-20 flex items-center'>
           <img className='w-16 ml-14' src={img} alt="" />
@@ -9,6 +11,7 @@ const Header = () => {
         
          
         <h1 className="text-3xl text-blue-50 font-bold">Learning Media</h1>
+        {user?.displayName && <span>welcome{user.displayName}</span>}
       <nav>
         <Link className="mx-3 text-white" to="/">Courses</Link>
         <Link className="mx-3 text-white" to="/faq">FAQ</Link>
@@ -16,6 +19,7 @@ const Header = () => {
         <Link className="mx-3 text-white" to="/blog">Theme</Link>
         <Link className="mx-3 text-white" to="/login">Login</Link>
       </nav>
+         
       </div>
     
     </div>

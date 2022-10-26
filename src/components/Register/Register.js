@@ -1,12 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import UserContext, { AuthContext } from '../contexts/UserContext';
 import './Register.css'
+ 
 const Register = () => {
+     const {createUser}=UserContext(AuthContext);
+    const handleSubmit = event=>{
+        event.preventDefault();
+        const form =event.target;
+        const name=form.name.value;
+        const email=form.email.value;
+        const password=form.password.value;
+        console.log(name,email,password)
+        form.reset();
+        createUser(email,password,name)
+         .then(result =>{
+           const user=result.user;
+            
+         })
+         .catch(error=>{
+            console.error(error);
+         })
+    }
     return (
         <div className='form-container h-fit container mx-auto'>
         <h2 className='text-3xl'>Register</h2>
-        <form className=''>
-            <div className="form"></div>
+        <form onSubmit={handleSubmit}>
             <label className='block text-left ml-12' htmlFor="name">Name</label>
             <input className='border-black border-2 p-3 rounded-md w-9/12 h-10' type="name"  name="name" required/>
             
