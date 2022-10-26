@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
+import CourseDetails from "./components/CourseDetails/CourseDetails";
 import Courses from "./components/Courses/Courses";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
@@ -25,8 +26,9 @@ function App() {
           element: <Register></Register>,
         },
         {
-          path: "course/:id",
-          element:<Register></Register>
+          path: "/course/:id",
+          element:<CourseDetails></CourseDetails>,
+          loader: ({params})=>fetch(`http://localhost:5000/course/${params.id}`)
         }
       ],
     },

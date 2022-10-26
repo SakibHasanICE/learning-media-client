@@ -12,7 +12,7 @@ const Login = () => {
                 <label className='block mt-4 text-left ml-12' htmlFor="email">Password</label>
                 <input className='border-black p-2  rounded-md border-2 w-9/12 h-10' type="password"  name="password" required/>
                 <button className='block w-9/12 rounded-md bg-red-500 mx-auto mt-5 h-10 text-white font-bold text-xl' type="submit">Submit</button>
-                <p className='mt-3 text-md mb-7'>New to Learning media <Link className="mx-3 text-red-700 font-bold text-xl" to="/register">Register</Link></p>
+                <p className='mt-3 text-md mb-7'>New to Learning media?<Link className="mx-3 text-red-700 font-bold text-xl" to="/register">Register</Link></p>
                    
             </form>
         </div>
