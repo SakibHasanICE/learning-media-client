@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import UserContext, { AuthContext } from '../contexts/UserContext';
+import { AuthContext } from '../contexts/UserContext';
+
 import './Register.css'
  
 const Register = () => {
-     const {createUser}=UserContext(AuthContext);
+     const{newUser,signinWithGoogle}=useContext(AuthContext);
+     console.log(newUser)
     const handleSubmit = event=>{
         event.preventDefault();
         const form =event.target;
@@ -13,7 +15,7 @@ const Register = () => {
         const password=form.password.value;
         console.log(name,email,password)
         form.reset();
-        createUser(email,password,name)
+        newUser(email,password,name)
          .then(result =>{
            const user=result.user;
             
@@ -22,8 +24,15 @@ const Register = () => {
             console.error(error);
          })
     }
+    const handleGooglesignin=()=>{
+            signinWithGoogle()
+            .then(result=>{
+                const user=result.user;
+            })
+            .catch(error=>console.error(error))
+    }
     return (
-        <div className='form-container h-fit container mx-auto'>
+        <div className='form-container h-fit container mx-auto mb-14'>
         <h2 className='text-3xl'>Register</h2>
         <form onSubmit={handleSubmit}>
             <label className='block text-left ml-12' htmlFor="name">Name</label>
@@ -40,8 +49,11 @@ const Register = () => {
             
             <button className='block w-9/12 rounded-md bg-red-500 mx-auto mt-5 h-10 text-white font-bold text-xl' type="submit">Submit</button> 
             
-            <p className='mt-3 text-md mb-7'>Already have an account?<Link className="mx-3 text-red-700 font-bold text-xl" to="/login">Login</Link></p>
+            <p className='mt-3 text-md '>Already have an account?<Link className="mx-3 text-red-700 font-bold text-xl" to="/login">Login</Link></p>
+            <button onClick={handleGooglesignin} className='block mb-10 w-9/12 rounded-md bg-red-500 mx-auto mt-5 h-10 text-white font-bold text-xl' type="submit">Google</button> 
+            
         </form>
+        
     </div>
     );
 };

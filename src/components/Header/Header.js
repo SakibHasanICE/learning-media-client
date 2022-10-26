@@ -11,7 +11,7 @@ const Header = () => {
         
          
         <h1 className="text-3xl text-blue-50 font-bold">Learning Media</h1>
-        {user?.displayName && <span>welcome{user.displayName}</span>}
+        {user?.email && <span className='text-red-800'>welcome{user.email}</span>}
       <nav>
         <Link className="mx-3 text-white" to="/">Courses</Link>
         <Link className="mx-3 text-white" to="/faq">FAQ</Link>
