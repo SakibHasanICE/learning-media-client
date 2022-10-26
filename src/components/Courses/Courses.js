@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Course from "../Course/Course";
+import './Courses.css'
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
@@ -10,15 +12,13 @@ const Courses = () => {
       .then((data) => setCourses(data));
   }, []);
   return (
-    <div>
-      {courses.map((course) => (
-        <div key={course.id}>
-          <img src={course.img} alt=" " />
-          <p>{course.name}</p>
-          <p>{course.views}</p>
-          <Link to={`/course/${course.id}`}>{course.name}</Link>
-        </div>
-      ))}
+    <div className="grid grid-cols-3 w-9/12 gap-9 mx-5 mt-5">
+      {courses.map((course) => 
+       <Course 
+       key={course.id}
+       course={course}
+       ></Course>
+      )}
     </div>
   );
 };

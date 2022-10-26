@@ -5,3 +5,11 @@
     width: 25rem;
     margin-top: 5rem;
 }
+/* <div className="card mt-5 grid grid-cols-1">
+<div className="card-container w-9/12 " key={course.id}>
+ <img className="mx-auto w-full h-3/4" src={course.img} alt="" />
+ <p>{course.name}</p>
+ <p>Views:{course.views}</p>
+ <Link to={`/course/${course.id}`}>{course.name}</Link>
+</div>
+</div> */
