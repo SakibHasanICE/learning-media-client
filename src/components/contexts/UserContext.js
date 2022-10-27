@@ -9,7 +9,7 @@ const UserContext = ({children}) => {
     
     const [user,setUser]=useState({displayName:'hddkshd'})
 
-    const googleProvider=new GoogleAuthProvider
+    const googleProvider = new GoogleAuthProvider();
     const newUser=(email,password)=>{
         return createUserWithEmailAndPassword(auth,email,password);
     }
