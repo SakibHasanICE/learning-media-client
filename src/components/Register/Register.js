@@ -12,9 +12,10 @@ const Register = () => {
         const name=form.name.value;
         const email=form.email.value;
         const password=form.password.value;
-        console.log(name,email,password)
+        const photoURL=form.photoURL.value;
+        console.log(name,email,password,photoURL)
         form.reset();
-        newUser(email,password,name)
+        newUser(email,password,name,photoURL)
          .then(result =>{
            const user=result.user;
            console.log(user)
