@@ -27,9 +27,12 @@ function App() {
         },
         {
           path: "/course/:id",
-          element:<CourseDetails></CourseDetails>,
-          loader: ({params})=>fetch(`http://localhost:5000/course/${params.id}`)
-        }
+          element: <CourseDetails></CourseDetails>,
+          loader: ({ params }) =>
+            fetch(
+              `https://learning-media-server.vercel.app/course/${params.id}`
+            ),
+        },
       ],
     },
   ]);
