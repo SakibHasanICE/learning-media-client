@@ -6,7 +6,6 @@ import './Register.css'
  
 const Register = () => {
      const{newUser,signinWithGoogle}=useContext(AuthContext);
-     console.log(newUser)
     const handleSubmit = event=>{
         event.preventDefault();
         const form =event.target;
@@ -18,7 +17,7 @@ const Register = () => {
         newUser(email,password,name)
          .then(result =>{
            const user=result.user;
-            
+           console.log(user)
          })
          .catch(error=>{
             console.error(error);
@@ -28,6 +27,7 @@ const Register = () => {
             signinWithGoogle()
             .then(result=>{
                 const user=result.user;
+                console.log(user)
             })
             .catch(error=>console.error(error))
     }
@@ -44,14 +44,15 @@ const Register = () => {
             <label className='block mt-4 text-left ml-12' htmlFor="password">Password</label>
             <input className='border-black border-2 p-3 rounded-md w-9/12 h-10' type="password"  name="password" required/>
            
-            <label className='block mt-4 text-left ml-12' htmlFor="url">Photo URL</label>
-            <input className='border-black p-2 rounded-md border-2 w-9/12 h-10' type="url"  name="url"/>
+            <label className='block mt-4 text-left ml-12' htmlFor="photoURL">Photo URL</label>
+            <input className='border-black p-2 rounded-md border-2 w-9/12 h-10' type="photoURL"  name="photoURL"/>
             
             <button className='block w-9/12 rounded-md bg-red-500 mx-auto mt-5 h-10 text-white font-bold text-xl' type="submit">Submit</button> 
             
             <p className='mt-3 text-md '>Already have an account?<Link className="mx-3 text-red-700 font-bold text-xl" to="/login">Login</Link></p>
             <button onClick={handleGooglesignin} className='block mb-10 w-9/12 rounded-md bg-red-500 mx-auto mt-5 h-10 text-white font-bold text-xl' type="submit">Google</button> 
             
+        
         </form>
         
     </div>
